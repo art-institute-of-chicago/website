@@ -53,8 +53,8 @@ class ExperienceController extends BaseController
             QuickFilter::make()
             ->queryString('archived')
             ->label('Archived')
-            ->amount(fn() => $this->repository->archived()->count())
-            ->apply(fn(Builder $query) => $query->archived())
+            ->amount(fn () => $this->repository->archived()->count())
+            ->apply(fn (Builder $query) => $query->archived())
         );
 
         return $filters;
@@ -62,7 +62,7 @@ class ExperienceController extends BaseController
 
     public function getPermalinkBaseUrl()
     {
-        return request()->getScheme() . '://' . config('app.url') . '/interactive-features/';
+        return config('app.url') . '/interactive-features/';
     }
 
     protected function previewData($item)
